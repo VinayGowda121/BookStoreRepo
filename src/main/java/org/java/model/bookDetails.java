@@ -10,6 +10,8 @@ import javax.persistence.Table;
 public class bookDetails {
 
 	@Id
+	@Column(name = "BOOKID")
+	private String bookId;
 	@Column(name = "TITLE")
 	private String title;
 	@Column(name = "AUTHOR")

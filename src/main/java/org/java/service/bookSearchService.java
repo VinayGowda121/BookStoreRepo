@@ -1,11 +1,13 @@
 package org.java.service;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.java.controller.bookSearchController;
 import org.java.dao.DataRepository;
+import org.java.dao.DataRepository1;
 import org.java.model.bookDetails;
 import org.java.utils.searchCache;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,9 @@ public class bookSearchService implements bookSearchController {
 
 	@Autowired
 	DataRepository repository;
+	
+	@Autowired
+	DataRepository1 repository1;
 
 	@Autowired
 	searchCache cache;
@@ -84,6 +89,13 @@ public class bookSearchService implements bookSearchController {
 	@Override
 	public String advancedResult(String bookName, String author, String category, String isbn, String published,
 			Model model) {
+		
+		int isbnv = Integer.parseInt(isbn);
+		Date publishedv = Date.valueOf(published);
+		
+		List<bookDetails> data = repository1.findAdvanced(bookName, author, category, isbnv, publishedv);
+		
+		model.addAttribute("data", data);
 		
 		return "advancedResult";
 	}

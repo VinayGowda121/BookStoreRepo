@@ -13,7 +13,7 @@ public class bookDetails2 {
 	
 	@Id
 	@Column(name="ISBN")
-	private int ISBN;
+	private int isbn;
 	
 	@Column(name="CATEGORY")
 	private String category;
@@ -21,11 +21,11 @@ public class bookDetails2 {
 	@Column(name="PUBLISHED")
 	private Date published;
 	
-	public int getISBN() {
-		return ISBN;
+	public int getIsbn() {
+		return isbn;
 	}
-	public void setISBN(int iSBN) {
-		ISBN = iSBN;
+	public void setIsbn(int isbn) {
+		this.isbn = isbn;
 	}
 	public String getCategory() {
 		return category;
